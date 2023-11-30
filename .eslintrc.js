@@ -1,3 +1,11 @@
+/*
+ * @Author: Ben 550461173@qq.com
+ * @Date: 2023-11-30 21:31:24
+ * @LastEditors: Ben 550461173@qq.com
+ * @LastEditTime: 2023-11-30 21:48:27
+ * @FilePath: \oms-platform-app\.eslintrc.js
+ * @Description: ESLint 检查 .vue 文件需要单独配置编辑器 ==> https://eslint.vuejs.org/user-guide/#editor-integrations
+ */
 module.exports = {
   root: true,
   env: {
@@ -14,6 +22,24 @@ module.exports = {
       jsx: true,
     },
   },
+  overrides: [
+    {
+      files: ["src/**/*.ts"],
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"],
+        extraFileExtensions: [".vue"],
+      },
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      excludedFiles: "*.test.ts",
+    },
+  ],
   rules: {
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
