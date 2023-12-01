@@ -20,12 +20,12 @@ export default class First extends VueComponent {
 
   render() {
     return (
-      <div class={'text-amber-300'}>
-        <div class={'mt-[22px] text-center text-[50px] text-red-400'}>aaa</div>
+      <div class='text-amber-300'>
+        <div class='mt-[22px] text-center text-[50px] text-red-400'>aaa</div>
         <Button
-          ref={'abc'}
-          type={'primary'}
-          openType={'getPhoneNumber'}
+          ref='abc'
+          type='primary'
+          openType='getPhoneNumber'
           onGetphonenumber={() => this.handlePhone()}
         >
           11111

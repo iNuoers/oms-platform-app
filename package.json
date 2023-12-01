@@ -20,7 +20,7 @@
     "lint": "eslint --fix .",
     "api": "tsg -c ./src/api/tsg.config.ts",
     "postinstall": "simple-git-hooks && weapp-tw patch",
-    "eslint:fix": "eslint --ext .vue --ext .js --ext .jsx --ext .ts --ext .tsx --fix src/"
+    "eslint:fix": "eslint --ext .vue --ext .js --ext .jsx --ext .ts --ext .tsx --fix"
   },
   "dependencies": {
     "@abraham/reflection": "^0.12.0",
