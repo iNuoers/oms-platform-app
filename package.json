@@ -20,7 +20,10 @@
     "lint": "eslint --fix .",
     "api": "tsg -c ./src/api/tsg.config.ts",
     "postinstall": "simple-git-hooks && weapp-tw patch",
-    "eslint:fix": "eslint --ext .vue --ext .js --ext .jsx --ext .ts --ext .tsx --fix"
+    "eslint:fix": "eslint --ext .vue --ext .js --ext .jsx --ext .ts --ext .tsx --fix src/",
+    "eslint": "eslint --ext .vue --ext .js --ext .jsx --ext .ts --ext .tsx src/",
+    "prepare": "husky install",
+    "tsc": "vue-tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@abraham/reflection": "^0.12.0",
@@ -70,10 +73,11 @@
     "eslint-config-prettier": "^8.9.0",
     "eslint-config-taro": "3.6.16",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "lodash": "^4.17.21",
     "postcss": "^8.4.30",
@@ -91,6 +95,7 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vue-loader": "^17.2.2",
+    "vue-tsc": "^1.8.24",
     "weapp-tailwindcss": "^2.9.2",
     "webpack": "^5.88.2"
   },
