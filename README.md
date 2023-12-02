@@ -3,15 +3,21 @@
 - vue3
 - tsx + vue3-oop
 - 依赖注入
+  
+## 准备工作：Vscode 插件安装
+
+- Eslint
+- Prettier
+- Volar
 
 ## 开发
 
 ```shell
 pnpm i
-pnpm run dev
+pnpm run dev:weapp
 ```
 
-然后打开微信开发者工具查看
+然后打开微信开发工具 项目目录指向 dist 目录 填写自己的 AppId 或者使用测试 AppId
 
 ### 开发h5
 
