@@ -1,17 +1,32 @@
-/*
- * @Author: Ben 550461173@qq.com
- * @Date: 2023-11-30 21:31:24
- * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-01 20:51:00
- * @FilePath: \oms-platform-app\src\app.config.ts
- * @Description:
- */
 export default defineAppConfig({
-    pages: ['module/demo/first/index', 'module/demo/two/index'],
-    window: {
-        navigationBarBackgroundColor: '#fff',
-        navigationBarTitleText: '偶查查',
-        navigationBarTextStyle: 'black',
-    },
-    subpackages: [],
-})
+  pages: ['pages/index/index', 'pages/my/index'],
+  window: {
+    backgroundColor: '#fff',
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#fff',
+    navigationBarTitleText: 'Taro3',
+    navigationBarTextStyle: 'black',
+    navigationStyle: 'custom'
+  },
+  subPackages: [
+    {
+      root: 'package',
+      pages: ['package-a/index', 'package-b/index', 'package-c/index', 'icon/index']
+    }
+  ],
+  tabBar: {
+    custom: true,
+    color: '#000000',
+    selectedColor: '#FF0000',
+    list: [
+      {
+        pagePath: 'pages/index/index',
+        text: '首页'
+      },
+      {
+        pagePath: 'pages/my/index',
+        text: '个人中心'
+      }
+    ]
+  }
+});

@@ -1,9 +1,6 @@
-node_modules
+.vscode
 .idea
-dist
-coverage
-public
-*.d.ts
-*.js
-src/index.html
-src/*
+.local
+index.html
+!.env-config.ts
+components.d.ts

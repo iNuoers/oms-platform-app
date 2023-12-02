@@ -1,65 +1,132 @@
-/*
- * @Author: Ben 550461173@qq.com
- * @Date: 2023-11-30 21:31:24
- * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-01 08:03:11
- * @FilePath: \oms-platform-app\.eslintrc.js
- * @Description: ESLint 检查 .vue 文件需要单独配置编辑器 ==> https://eslint.vuejs.org/user-guide/#editor-integrations
- */
 module.exports = {
-  root: true,
-  env: {
-    node: true,
-    browser: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+  extends: ['soybeanjs/vue'],
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'no-undef': 'off' // use tsc to check the ts code of the vue
+      }
+    }
   ],
-  plugins: ['@typescript-eslint'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  globals: {
-    wx: 'readonly',
+  settings: {
+    'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
   },
   rules: {
-    'prettier/prettier': [
+    'no-return-await': 'off',
+    'import/order': [
       'error',
       {
-        tabWidth: 4,
-        singleQuote: true,
-        semi: false,
-        trailingComma: 'es5',
-        arrowParens: 'always',
-        endOfLine: 'auto',
-        printWidth: 100,
-      },
-    ],
-    '@typescript-eslint/unbound-method': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-empty-function': 'warn',
-    '@typescript-eslint/ban-types': [
-      'error',
-      {
-        extendDefaults: true,
-        types: {
-          '{}': false,
-        },
-      },
-    ],
-    '@typescript-eslint/no-explicit-any': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-uses-react': 'off',
-  },
-}
+        'newlines-between': 'never',
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroups: [
+          {
+            pattern: 'vue',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: '@tarojs/taro',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: 'pinia',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: '@nutui/nutui-taro',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: '@/constants',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/config',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/settings',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/enum',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/plugins',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/pages',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/views',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/components',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/package',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/service',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/store',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/context',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/composables',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/hooks',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/utils',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/assets',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'before'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'pinia', '@nutui/nutui-taro']
+      }
+    ]
+  }
+};
