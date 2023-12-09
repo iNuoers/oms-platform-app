@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const showTabBar = computed(() => props.showTabBar);
 
+// 主题
 const themeStore = useThemeStore();
 const theme = computed(() => themeStore.theme);
 const themeVars = computed(() => themeStore.themeVars);

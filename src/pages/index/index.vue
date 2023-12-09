@@ -1,6 +1,32 @@
+<!--
+ * @Author: Ben 550461173@qq.com
+ * @Date: 2023-12-02 18:40:29
+ * @LastEditors: Ben 550461173@qq.com
+ * @LastEditTime: 2023-12-06 08:08:23
+ * @FilePath: \oms-platform-app\src\pages\index\index.vue
+ * @Description:
+-->
 <template>
   <basic-layout show-tab-bar>
     <custom-navbar title="首页" />
+    <swiper
+      class="box"
+      :autoplay="true"
+      :interval="interval"
+      indicator-color="#999"
+      @tap="handleTap"
+      @animationfinish="handleAnimationFinish"
+    >
+      <swiper-item>
+        <view class="text">1</view>
+      </swiper-item>
+      <swiper-item>
+        <view class="text">2</view>
+      </swiper-item>
+      <swiper-item>
+        <view class="text">3</view>
+      </swiper-item>
+    </swiper>
     <nut-cell title="基础弹框" @click="baseClick"></nut-cell>
     <nut-cell title="分包A" @click="handleToA"></nut-cell>
     <nut-cell title="分包B" @click="handleToB"></nut-cell>
@@ -19,7 +45,15 @@ import { ref } from 'vue';
 import { navigateTo } from '@tarojs/taro';
 import { useThemeStore } from '@/store';
 
+const interval = 1000;
 const visible1 = ref<boolean>(false);
+
+function handleTap() {
+  console.log('tap');
+}
+function handleAnimationFinish() {
+  console.log('finish');
+}
 
 function baseClick() {
   visible1.value = true;
@@ -27,7 +61,7 @@ function baseClick() {
 
 function handleToA() {
   navigateTo({
-    url: '/package/package-a/index'
+    url: '/modules/user/index'
   });
 }
 

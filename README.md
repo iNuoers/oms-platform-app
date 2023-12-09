@@ -70,3 +70,34 @@ export default {
 -   小程序中不支持 `<style scoped>`，建议使用 cssModules 代替。
 -   自定义 navbar 在模拟器上 safe-area-inset-top 失效，真机可以[微信社区](https://developers.weixin.qq.com/community/develop/doc/0000c21ff082c8cefc9a5986b51800?highLine=safe-area-inset-top%25E5%25A4%25B1%25E6%2595%2588)
 -   自定义 tabbar 使用 svg 或者 icon，图片会出现抖动问题[微信社区](https://developers.weixin.qq.com/community/develop/doc/000c84de0cc590bbe54b97edf5e414?highline=tabbar)
+
+### 项目目录结构
+
+├── dist 编译结果目录
+|
+├── config 项目编译配置目录
+| ├── index.js 默认配置
+| ├── dev.js 开发环境配置
+| └── prod.js 生产环境配置
+|
+├── src 源码目录
+| ├── pages 页面文件目录
+| | └── index index 页面目录
+| | ├── index.js index 页面逻辑
+| | ├── index.css index 页面样式
+| | └── index.config.js index 页面配置
+| |
+| ├── app.js 项目入口文件
+| ├── app.css 项目总通用样式
+| └── app.config.js 项目入口配置
+|
+├── project.config.json 微信小程序项目配置 project.config.json
+├── project.tt.json 字节跳动小程序项目配置 project.config.json
+├── project.swan.json 百度小程序项目配置 project.swan.json
+├── project.qq.json QQ 小程序项目配置 project.config.json
+|
+├── babel.config.js Babel 配置
+├── tsconfig.json TypeScript 配置
+├── .eslintrc ESLint 配置
+|
+└── package.json

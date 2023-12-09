@@ -1,0 +1,11 @@
+.taro_page {
+	background-color: inherit !important;
+}
+.nut-theme-dark {
+	color: var(--nut-dark-color, var(--nut-white, #fff));
+}
+.nut-cell {
+	margin: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
