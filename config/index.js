@@ -18,7 +18,7 @@ const NutUIResolver = () => {
 };
 
 const config = {
-  projectName: 'Taro3',
+  projectName: '偶查查',
   date: '2021-12-18',
   designWidth(input) {
     // 配置 NutUI 375 尺寸
@@ -130,7 +130,7 @@ const config = {
     }
   },
   rn: {
-    appName: 'taro3',
+    appName: '偶查查',
     postcss: {
       cssModules: {
         enable: false // 默认为 false，如需使用 css modules 功能，则设为 true

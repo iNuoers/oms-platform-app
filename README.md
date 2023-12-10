@@ -1,3 +1,12 @@
+<!--
+ * @Author: Ben 550461173@qq.com
+ * @Date: 2023-12-02 18:40:29
+ * @LastEditors: Ben 550461173@qq.com
+ * @LastEditTime: 2023-12-09 14:04:59
+ * @FilePath: \oms-platform-app\README.md
+ * @Description:
+-->
+
 ## 简介
 
 taro-vue3-pinia 是一个使用 Taro3 + Vue3 + TypeScript + NutUi + pinia + unocss + pnpm 跨端模板，它使用了最新的前端技术栈，内置丰富的插件，有着极高的代码规范，开箱即用的跨端前端解决方案，也可用于学习参考。
@@ -101,3 +110,28 @@ export default {
 ├── .eslintrc ESLint 配置
 |
 └── package.json
+
+### 源码参考
+
+https://gitee.com/zhuige_com/jiangqie_kafei/tree/master
+https://gitee.com/urselect/urshop/tree/master
+https://gitee.com/victor123/jjjshop-java
+https://github.com/singcl/taro-weapp/tree/master
+https://github.com/codingtalk/tacomall/tree/master
+https://github.com/aehyok/uniapp-vue3-gpt/tree/main
+https://github.com/oyjt/uniapp-vue3-template
+https://github.com/Megasu/uniapp-shop-vue3-ts
+https://github.com/zjutjh/WeJH-Taro/tree/master/src
+https://github.com/imzusheng/netease-music-uniapp/blob/master/package.json
+https://github.com/ATQQ/uni-vue3-ts-template/blob/main/unocss.config.ts
+https://github.com/Yill625/taro3-vue3-template/blob/main/src/components/NumberSubmit.vue
+https://github.com/mtmzorro/wows-ship-fitting/blob/bee38f263119204afa3b2c3d34c84014404a531f/src/pages/fittingEditor/fittingEditor.tsx
+https://github.com/umaim/SteamCN-Mini-Program/blob/e7a9c258570eceafe9f2fa8ce12cba2cdbe29b71/src/app.tsx#L101
+https://github.com/jackmsithindex001/Gitter/blob/6e7647725e93316bc0b8f87fefa352aa237ef748/src/app.js#L143
+https://github.com/shenpvip/taro-template/blob/d9df3b1122fc4d63d6366bc25eba87b454266540/src/utils/api.js
+https://github.com/shenpvip/taro-template/blob/d9df3b1122fc4d63d6366bc25eba87b454266540/src/utils/api.js
+https://github.com/suchenrain/nice-mood/blob/ac6ae68cc18b3960a3b012c89855f30e5e9aacd0/client/src/utils/autoUpgrade.ts#L7
+https://github.com/doublechaintech/scm-biz-suite/blob/2780f452e3719161182d0ad0a7973754b5a6dd30/wxapp/src/app.config.ts
+https://github.com/nslogx/Gitter/blob/f13dfb293b45a617190c1efce2d6d388d7907a29/src/app.js#L146
+https://github.com/linzaifei/rubbish/blob/e1efde5011b345ce04e0c5f4a15410b7d1dd0caa/client/src/components/canvas/CanvasManager.jsx
+https://github.com/MatchUs-ZJU/matchus-frontend/blob/4961d387d87eacff51bc75f0ed5b3293c2213e77/src/utils/taro-utils.ts#L77
