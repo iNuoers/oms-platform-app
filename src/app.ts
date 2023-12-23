@@ -2,7 +2,7 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-02 18:40:29
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-09 10:07:13
+ * @LastEditTime: 2023-12-23 19:42:54
  * @FilePath: \oms-platform-app\src\app.ts
  * @Description:
  */
@@ -20,7 +20,6 @@ const App = createApp({
     }
   },
   onShow() {
-    console.log('app show', env);
     if (env !== 'WEB') {
       checkMiniProgramUpdate();
     }

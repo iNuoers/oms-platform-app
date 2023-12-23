@@ -2,7 +2,7 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-03 14:46:06
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-03 20:38:25
+ * @LastEditTime: 2023-12-23 14:27:34
  * @FilePath: \oms-platform-app\src\utils\taro\index.ts
  * @Description: Taro工具类
  */
@@ -25,7 +25,7 @@ export async function viewImage(urls: string[], current?: string) {
 
 /**
  * 判断当前页面是否首页
- * @returns
+ * @returns boolean
  */
 export function checkHomePage() {
   const currentPages = Taro.getCurrentPages();
@@ -40,9 +40,6 @@ export function checkHomePage() {
  * 检查小程序是否有新版本
  */
 export function checkMiniProgramUpdate() {
-  // 检查版本更新
-  console.log('版本更新：检查版本更新');
-
   if (!Taro.canIUse('getUpdateManager')) {
     Taro.showModal({
       title: '提示',
@@ -55,18 +52,14 @@ export function checkMiniProgramUpdate() {
   updateManager.onCheckForUpdate(res => {
     if (res.hasUpdate) {
       // 存在版本更新
-      console.log('版本更新：存在新版本');
       updateManager.onUpdateReady(async () => {
-        console.log('版本更新：版本更新就绪');
         await Taro.showModal({
           title: '更新提示',
           content: '新版本已经准备好，是否重启应用？',
           success: async r => {
             if (r.confirm) {
-              console.log('版本更新：用户同意更新');
               updateManager.applyUpdate();
             } else if (r.cancel) {
-              console.log('版本更新：用户拒绝更新');
               await Taro.exitMiniProgram();
             }
           }
@@ -74,14 +67,11 @@ export function checkMiniProgramUpdate() {
       });
 
       updateManager.onUpdateFailed(async () => {
-        console.log('版本更新：版本更新失败');
         await Taro.showModal({
           title: '已经有新版本了哟~',
           content: '新版本已经上线啦~，请您删除当前小程序，重新搜索打开哟~'
         });
       });
-    } else {
-      console.log('版本更新：当前为最新版本小程序');
     }
   });
 }

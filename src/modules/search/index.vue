@@ -2,7 +2,7 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-10 11:21:42
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-14 19:59:57
+ * @LastEditTime: 2023-12-23 19:43:06
  * @FilePath: \oms-platform-app\src\modules\search\index.vue
  * @Description: 文本查询页面
 -->
@@ -118,7 +118,6 @@ const switchText = () => {
   isFocus.value = !isFocus.value;
   if (isFocus.value) {
     setTimeout(() => {
-      console.log(textAreaRef.value);
       nextTick(calcTextareaHeight);
     });
   }

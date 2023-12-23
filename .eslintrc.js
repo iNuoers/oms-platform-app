@@ -12,7 +12,10 @@ module.exports = {
     'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
   },
   rules: {
+    'max-depth': 0,
+    'max-params': 0,
     'no-return-await': 'off',
+    'no-param-reassign': 'off',
     'import/order': [
       'error',
       {

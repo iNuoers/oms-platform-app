@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "偶查查",
   "description": "偶查查",
-  "appid": "",
+  "appid": "wxa6db6fd3d9e15706",
   "setting": {
     "urlCheck": false,
     "es6": false,

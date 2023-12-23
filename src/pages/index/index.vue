@@ -2,7 +2,7 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-02 18:40:29
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-06 08:08:23
+ * @LastEditTime: 2023-12-23 19:43:41
  * @FilePath: \oms-platform-app\src\pages\index\index.vue
  * @Description:
 -->
@@ -48,12 +48,11 @@ import { useThemeStore } from '@/store';
 const interval = 1000;
 const visible1 = ref<boolean>(false);
 
-function handleTap() {
-  console.log('tap');
-}
-function handleAnimationFinish() {
-  console.log('finish');
-}
+// eslint-disable-next-line no-empty-function
+function handleTap() {}
+
+// eslint-disable-next-line no-empty-function
+function handleAnimationFinish() {}
 
 function baseClick() {
   visible1.value = true;

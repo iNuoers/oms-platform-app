@@ -1,3 +1,11 @@
+/*
+ * @Author: Ben 550461173@qq.com
+ * @Date: 2023-12-02 18:40:29
+ * @LastEditors: Ben 550461173@qq.com
+ * @LastEditTime: 2023-12-23 14:26:54
+ * @FilePath: \oms-platform-app\src\utils\storage\local.ts
+ * @Description:
+ */
 import { setStorageSync, getStorageSync, removeStorageSync, clearStorage } from '@tarojs/taro';
 
 interface StorageData<T> {
@@ -5,6 +13,10 @@ interface StorageData<T> {
   expire: number | null;
 }
 
+/**
+ * 本地缓存接口
+ * @returns 一个本地缓存对象，可以设置缓存值和缓存时间
+ */
 function createLocalStorage<T extends StorageInterface.Local = StorageInterface.Local>() {
   /** 默认缓存期限为7天 */
   const DEFAULT_CACHE_TIME = 60 * 60 * 24 * 7;
