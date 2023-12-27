@@ -2,7 +2,7 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-03 14:46:06
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-23 14:27:34
+ * @LastEditTime: 2023-12-24 20:04:24
  * @FilePath: \oms-platform-app\src\utils\taro\index.ts
  * @Description: Taro工具类
  */
@@ -73,16 +73,5 @@ export function checkMiniProgramUpdate() {
         });
       });
     }
-  });
-}
-
-export function appLogin() {
-  // 获取设备信息
-  Taro.getSystemInfo().then(systemInfo => {
-    console.log('登录成功', systemInfo);
-  });
-
-  Taro.login().then(ret => {
-    console.log('登录成功', ret);
   });
 }

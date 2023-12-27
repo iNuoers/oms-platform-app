@@ -2,20 +2,24 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-06 08:03:33
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-23 19:17:05
+ * @LastEditTime: 2023-12-24 20:08:03
  * @FilePath: \oms-platform-app\src\modules\user\index.vue
  * @Description:
 -->
 <template>
   <basic-layout show-tab-bar>
-    <div class="user-page bg-[#f8f8f8] min-h-[100vh] pb-[60px]" :style="{ paddingTop: pxTransform(statusBarHeight) }">
+    <div class="user-page bg-[#f8f8f8] min-h-[100vh] pb-[60px]">
       <!-- 用户信息 -->
       <div class="user-info pt-[7px] px-[15px] pb-[12px] flex flex-nowrap items-center">
         <nut-avatar shape="round">
-          <img :src="defaultHeadImg" alt="Head Image" class="rounded-full" />
+          <img
+            :src="isEmpty(userAvatar) ? require('@/assets/imgs/default-headimg.png') : userAvatar"
+            alt="Head Image"
+            class="rounded-full"
+          />
         </nut-avatar>
-        <div class="flex-1 ml-[15px]">
-          <div class="text-[18px] font-bold">登录 / 注册</div>
+        <div class="flex-1 ml-[15px]" @tap="getUserProfile">
+          <div class="text-[18px] font-bold">{{ isEmpty(userNickName) ? '登录 / 注册' : userNickName }}</div>
           <div class="text-[12px] mt-[5px]">欢迎来到 - 偶查查</div>
         </div>
         <span class="text-30px i-iconamoon:arrow-right-2" />
@@ -175,22 +179,61 @@
   </basic-layout>
 </template>
 <script setup lang="ts">
-import { getEnv, pxTransform } from '@tarojs/taro';
+import { onMounted, ref } from 'vue';
+import Taro, { getEnv } from '@tarojs/taro';
 import { useNavInfo } from '@/hooks';
-import defaultHeadImg from '@/assets/imgs/default-headimg.png';
+import { isEmpty } from '@/utils/is';
 
 const { navInfo } = useNavInfo();
 
 const env = getEnv();
 const isH5 = env === 'WEB';
 
-const statusBarHeight = navInfo.appHeaderHeight;
+const userAvatar = ref('');
+const userNickName = ref('');
+
+const statusBarHeight = `${Number(navInfo.appHeaderHeight) || 0}px`;
+
+const app = Taro.getApp();
+console.log(app);
+
+Taro.usePullDownRefresh(() => {
+  Taro.showLoading({
+    title: `正在加载...`
+  });
+  setTimeout(() => {
+    Taro.hideLoading();
+    Taro.stopPullDownRefresh();
+  }, 1000);
+});
+
+onMounted(() => {
+  const avatar = Taro.getStorageSync('userAvatar');
+  const nickName = Taro.getStorageSync('userNickName');
+  userAvatar.value = avatar;
+  userNickName.value = nickName;
+});
+
+const getUserProfile = () => {
+  Taro.getUserProfile({
+    desc: '用于获取用户头像和昵称', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    success: res => {
+      const { avatarUrl, nickName } = res.userInfo;
+      userAvatar.value = avatarUrl;
+      userNickName.value = nickName;
+      // localStorage
+      Taro.setStorageSync('userAvatar', avatarUrl);
+      Taro.setStorageSync('userNickName', nickName);
+    }
+  });
+};
 </script>
 
 <style lang="scss">
 .user-page {
   background: #f8f8f8 url(https://m.tesoon.com/assets/img/index_bg.246025bf.png) no-repeat top;
   background-size: 100%;
+  padding-top: v-bind(statusBarHeight);
 
   .user-info {
     .nut-avatar {

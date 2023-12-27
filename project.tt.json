@@ -1,12 +1,16 @@
 {
   "miniprogramRoot": "./",
   "projectname": "偶查查",
-  "appid": "touristappid",
+  "appid": "wxa6db6fd3d9e15706",
   "setting": {
     "urlCheck": false,
     "es6": false,
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
 }

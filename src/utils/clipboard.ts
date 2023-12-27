@@ -2,9 +2,9 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-23 14:48:41
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-23 19:44:27
+ * @LastEditTime: 2023-12-23 20:23:32
  * @FilePath: \oms-platform-app\src\utils\clipboard.ts
- * @Description:
+ * @Description: https://github.com/yz1311/taro-utils/blob/main/lib/utils/clipboard.ts
  */
 import Taro from '@tarojs/taro';
 
