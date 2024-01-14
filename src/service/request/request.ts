@@ -1,7 +1,20 @@
+/*
+ * @Author: Ben 550461173@qq.com
+ * @Date: 2023-12-02 18:40:29
+ * @LastEditors: Ben 550461173@qq.com
+ * @LastEditTime: 2024-01-12 15:23:45
+ * @FilePath: \oms-platform-app\src\service\request\request.ts
+ * @Description:
+ */
 import axios from './instansce';
 
 /** 创建请求 */
 export function createRequest() {
+  /**
+   *
+   * @param param
+   * @returns
+   */
   async function asyncRequest<T>(param: Service.RequestParam): Promise<Service.RequestResult<T>> {
     const { url } = param;
     const method = param.method || 'GET';

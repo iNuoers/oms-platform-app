@@ -14,8 +14,16 @@ module.exports = {
   rules: {
     'max-depth': 0,
     'max-params': 0,
+    'no-eq-null': 'off',
+    eqeqeq: 'off',
+    'no-plusplus': 'off',
+    'no-new-object': 'off',
+    'no-debugger': 'off',
+    'no-restricted-syntax': 'off',
+    'no-empty-function': 'off',
     'no-return-await': 'off',
     'no-param-reassign': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'import/order': [
       'error',
       {

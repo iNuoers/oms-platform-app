@@ -72,6 +72,12 @@
     "editor.defaultFormatter": "Vue.volar"
   },
   "cSpell.words": [
+    "nutui",
+    "pinia",
+    "tarojs",
+    "unocss",
+    "unplugin",
+    "WEAPP",
     "weixin"
   ]
 }

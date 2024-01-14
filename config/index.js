@@ -4,7 +4,6 @@ import ComponentsPlugin from 'unplugin-vue-components/webpack';
 const path = require('path');
 
 const NutUIResolver = () => {
-  // eslint-disable-next-line consistent-return
   return name => {
     if (name.startsWith('Nut')) {
       const partialName = name.slice(3);
@@ -35,6 +34,7 @@ const config = {
     375: 2 / 1
   },
   alias: {
+	'~': path.resolve(__dirname, '..', 'src'),
     '@': path.resolve(__dirname, '..', 'src')
   },
   compiler: 'webpack5',
@@ -42,15 +42,19 @@ const config = {
   outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins: ['@tarojs/plugin-html', 'taro-plugin-pinia'],
   sass: {
+	resource: path.resolve(__dirname, '..', 'src/styles/global.scss'),
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   defineConstants: {},
   copy: {
-    patterns: [],
+    patterns: [
+		{ from: 'src/assets', to: 'dist/assets' }
+	],
     options: {}
   },
   framework: 'vue3',
   mini: {
+	hot: true,
     postcss: {
       pxtransform: {
         enable: true,

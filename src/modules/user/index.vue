@@ -2,13 +2,13 @@
  * @Author: Ben 550461173@qq.com
  * @Date: 2023-12-06 08:03:33
  * @LastEditors: Ben 550461173@qq.com
- * @LastEditTime: 2023-12-24 20:08:03
+ * @LastEditTime: 2024-01-13 11:55:29
  * @FilePath: \oms-platform-app\src\modules\user\index.vue
  * @Description:
 -->
 <template>
   <basic-layout show-tab-bar>
-    <div class="user-page bg-[#f8f8f8] min-h-[100vh] pb-[60px]">
+    <div class="user-page bg-[#f8f8f8] min-h-[100vh]">
       <!-- 用户信息 -->
       <div class="user-info pt-[7px] px-[15px] pb-[12px] flex flex-nowrap items-center">
         <nut-avatar shape="round">
@@ -139,7 +139,7 @@
       </div>
 
       <!-- 快捷入口 -->
-      <div class="rounded-lg bg-[hsla(0,0%,100%,.7)] m-4 mt-0 pt-2.5">
+      <div class="rounded-lg bg-[hsla(0,0%,100%,.7)] m-4 mt-0 mb-[20px] pt-2.5">
         <a href="/user/question" class="flex flex-nowrap items-center justify-between px-4 py-0 h-[54px]">
           <img
             :class="{ 'w-[24px] h-[24px]': isH5 }"
@@ -187,15 +187,13 @@ import { isEmpty } from '@/utils/is';
 const { navInfo } = useNavInfo();
 
 const env = getEnv();
+const app = Taro.getApp();
 const isH5 = env === 'WEB';
 
 const userAvatar = ref('');
 const userNickName = ref('');
 
 const statusBarHeight = `${Number(navInfo.appHeaderHeight) || 0}px`;
-
-const app = Taro.getApp();
-console.log(app);
 
 Taro.usePullDownRefresh(() => {
   Taro.showLoading({
@@ -212,6 +210,8 @@ onMounted(() => {
   const nickName = Taro.getStorageSync('userNickName');
   userAvatar.value = avatar;
   userNickName.value = nickName;
+
+  app.get_user_info();
 });
 
 const getUserProfile = () => {
